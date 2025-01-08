@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Jackson Flowers - Portfolio</title>
+        <title>Jackson Flowers</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -193,6 +194,10 @@
                 color: #555;
             }
 
+            .college-classes {
+                display: none;
+            }
+
             .college-classes ul {
                 margin: 0;
                 padding-left: 1.5rem;
@@ -208,6 +213,18 @@
             .high-school p {
                 margin: 0.5rem 0;
                 line-height: 1.6;
+            }
+
+            .collapsible {
+                background-color: #007bff;
+                color: white;
+                cursor: pointer;
+                padding: 10px;
+                width: 100%;
+                text-align: left;
+                border: none;
+                outline: none;
+                font-size: 16px;
             }
         </style>
     </head>
@@ -465,6 +482,7 @@
             </div>
 
             <!-- College Classes -->
+            <button class="collapsible">Click to Show Full Coursework</button>
             <div class="college-classes">
                 <h3>Full College Coursework</h3>
                 <div class="semester">
@@ -565,5 +583,6 @@
         <footer>
             <p>&copy; 2024 Jackson Flowers. All Rights Reserved.</p>
         </footer>
+        <script src="script.js"></script>
     </body>
 </html>
