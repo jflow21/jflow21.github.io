@@ -83,6 +83,132 @@
             footer a:hover {
                 text-decoration: underline;
             }
+
+            ul {
+                line-height: 2; /* Adjust this value to control the spacing */
+            }
+
+            #internships {
+                margin-top: 2rem;
+            }
+
+            .internship h3 {
+                font-size: 1.5rem;
+                color: #2980b9;
+                margin-bottom: 0.2rem;
+            }
+
+            .internship p {
+                margin: 0.2rem 0;
+                font-weight: bold;
+                color: #555;
+            }
+
+            .internship ul {
+                /* margin: 0.5rem 0 1rem 1.5rem; */
+                line-height: 1.8;
+            }
+
+            .internship ul li {
+                margin-bottom: 0.5rem;
+            }
+
+            #teaching-research {
+                margin-top: 2rem;
+                padding: 1rem 3rem;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            #teaching-research h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .teaching,
+            .research {
+                margin-bottom: 2rem;
+            }
+
+            .teaching h3,
+            .research h3 {
+                font-size: 1.5rem;
+                color: #2980b9;
+                margin-bottom: 0.5rem;
+            }
+
+            .teaching ul {
+                margin: 0;
+                padding-left: 1.5rem;
+                line-height: 1.8;
+            }
+
+            .teaching ul li {
+                margin-bottom: 0.5rem;
+                list-style-type: disc;
+            }
+
+            .research p {
+                margin: 0.5rem 0;
+                line-height: 1.6;
+                color: #555;
+            }
+
+            #education {
+                margin-top: 2rem;
+                padding: 1rem 3rem;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            #education h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .college,
+            .high-school,
+            .college-classes {
+                margin-bottom: 2rem;
+            }
+
+            .college h3,
+            .high-school h3,
+            .college-classes h3 {
+                font-size: 1.5rem;
+                color: #2980b9;
+                margin-bottom: 0.5rem;
+            }
+
+            .college-classes .semester h4 {
+                font-size: 1.3rem;
+                color: #555;
+                margin-bottom: 0.3rem;
+            }
+
+            .ase-credit {
+                font-style: italic;
+                color: #555;
+            }
+
+            .college-classes ul {
+                margin: 0;
+                padding-left: 1.5rem;
+                line-height: 1.8;
+            }
+
+            .college-classes ul li {
+                margin-bottom: 0.3rem;
+                list-style-type: disc;
+            }
+
+            .college p,
+            .high-school p {
+                margin: 0.5rem 0;
+                line-height: 1.6;
+            }
         </style>
     </head>
     <body>
@@ -90,7 +216,9 @@
             <h1>Jackson Flowers</h1>
             <nav>
                 <a href="#about">About Me</a>
-                <a href="#projects">Projects</a>
+                <a href="#internships">Internships</a>
+                <a href="#teaching+research">Teaching & Research</a>
+                <a href="#notable-classes">Notable Classes</a>
                 <a href="#contact">Contact</a>
             </nav>
         </header>
@@ -98,13 +226,149 @@
         <section id="about">
             <h2>About Me</h2>
             <p>
-                Hello! I am Jackson Flowers, a passionate and detail-oriented
-                finance enthusiast with expertise in quantitative trading and
-                technical analysis. Welcome to my portfolio website!
+                Hello! I'm Jackson Flowers, a passionate and detail-oriented MIT
+                senior with expertise in quantitative trading, data science, and
+                software engineering. If you don't want to read the rest of the
+                page, here's a quick summary of me:
             </p>
+            <ul>
+                <li>
+                    Senior at <b>MIT</b> studying Math and Computer Science
+                    (double major) graduating May 2025
+                </li>
+                <li>
+                    Incoming <b>Quantitative Trading Analyst</b> at
+                    <b>DRW</b> on the US Treasury Options desk beginning July
+                    2025
+                </li>
+                <li>
+                    Interned at <b>Susquehanna</b> (aka S.I.G.) in Summer 2024
+                    in <b>Quantitative Trading</b> and received a return offer
+                </li>
+                <li>
+                    <b>5.0 (perfect) GPA</b> at MIT + 6 graduate classes taken
+                </li>
+                <li>
+                    Past internships in <b>software engineering</b> (Summer
+                    2023) and <b>ML research</b> (Summer 2022)
+                </li>
+            </ul>
         </section>
 
-        <section id="projects">
+        <section id="internships">
+            <h2>Internships</h2>
+            <div class="internship">
+                <h3>Quantitative Trading Intern</h3>
+                <p>
+                    <strong>Susquehanna International Group</strong> | June 2024
+                    - August 2024
+                </p>
+                <ul>
+                    <li>
+                        Participated in mock trading in simulated market
+                        conditions
+                    </li>
+                    <li>
+                        Designed and implemented post-hoc trading bot in
+                        simulated trading environment using real market results.
+                        Achieved the highest PnL out of the 7 co-participants in
+                        the project
+                    </li>
+                    <li>
+                        Completed intern education program on financial markets
+                        and options
+                    </li>
+                </ul>
+            </div>
+            <div class="internship">
+                <h3>Software Engineering Intern</h3>
+                <p><strong>Poatek</strong> | May 2023 - August 2023</p>
+                <ul>
+                    <li>
+                        Designed and developed backend API for internal tool
+                        used by more than 200 employees daily
+                    </li>
+                    <li>
+                        Created a scalable backend that could easily be
+                        augmented in the future, entirely replacing the current
+                        system
+                    </li>
+                </ul>
+            </div>
+            <div class="internship">
+                <h3>Applied Math Research Internship</h3>
+                <p>
+                    <strong>US Air Force Laboratory</strong> | May 2022 - August
+                    2022
+                </p>
+                <ul>
+                    <li>
+                        Designed new metrics for task-oriented natural language
+                        problems based on novel focus distribution
+                    </li>
+                    <li>
+                        Repurposed attention distribution of transformers to
+                        improve model performance by over 50%
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="teaching+research">
+            <h2>Teaching & Research</h2>
+            <div class="teaching">
+                <h3>Teaching Positions</h3>
+                <ul>
+                    <li>
+                        <strong>Lab Assistant</strong>, Machine Learning
+                        (6.3900) | Spring 2024
+                    </li>
+                    <li>
+                        <strong>Undergraduate Assistant</strong>, Functional
+                        Analysis (18.102) | Spring 2023
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Research Experience -->
+            <div class="research">
+                <h3>Research Experience</h3>
+                <p>
+                    <strong>Undergraduate Researcher</strong>,
+                    <i
+                        >MIT Computer Science and Artificial Intelligence
+                        Laboratory</i
+                    >
+                    | Jan. 2024 - May 2024
+                </p>
+                <p>
+                    I worked under
+                    <a href="https://www.csail.mit.edu/person/neil-thompson"
+                        >Dr. Thompson</a
+                    >
+                    and
+                    <a href="https://futuretech.mit.edu/team/jayson-lynch"
+                        >Dr. Lynch</a
+                    >
+                    in the
+                    <a href="https://futuretech.mit.edu/">FutureTech</a> lab
+                    studying quantum algorithms and the economic impact of
+                    quantum computing.
+                </p>
+                <p>
+                    <strong> Researcher</strong>,
+                    <i>Velexi Corporation</i>
+                    | Jun. 2020 - Aug 2021
+                </p>
+                <p>
+                    I researched under Dr. Kevin Chu at
+                    <a href="https://www.velexi.com/">Velexi</a> applying
+                    geometric algebra to sparsity estimation problems.
+                </p>
+            </div>
+        </section>
+
+        <!-- <section id="projects">
             <h2>Projects</h2>
             <div class="project">
                 <h3>Options Analyzer</h3>
@@ -120,7 +384,7 @@
                     visualization and insights for traders.
                 </p>
             </div>
-        </section>
+        </section> -->
 
         <section id="notable-classes">
             <h2>Notable Classes</h2>
@@ -139,14 +403,145 @@
             <div class="project">
                 <h3>Statistical Data Analysis</h3>
                 <p>
-                    I took this graduate class in Spring 2025, and it covered
-                    all sorts of deep learning architectures, including MLPs,
-                    CNNs, RNNs, graph nets, and transformers, as well as lots of
-                    miscellaneous theory. The main thing I got out of this class
-                    was a lot of experience working with neural nets in PyTorch,
-                    and so I feel confident in my ability to quickly spin up a
-                    neural net to solve a problem.
+                    I took this graduate class in Spring 2024, and it covered
+                    lots of data science techniques using both theory and
+                    implementation-based projects. There was a primary focus on
+                    prediction, inference, and hypothesis testing, but really
+                    the class was a survey of many different modern techniques
+                    in data science. This class gave me some useful experience
+                    working with real datasets and gave me exposure to the whole
+                    data science pipeline, from data cleaning to modelling.
                 </p>
+            </div>
+            <div class="project">
+                <h3>Software Performance Engineering</h3>
+                <p>
+                    I took this class in Fall 2023, and it was a project-based
+                    introduction to designing scalable and high-performance
+                    software systems. In short, the purpose of the class was to
+                    learn how to write <i>really really</i> fast code. I gained
+                    experience in two important things during this class:
+                </p>
+                <ol>
+                    <li>
+                        Taking an existing codebase and figuring out its
+                        performance bottlnecks before improving them
+                    </li>
+                    <li>
+                        Designing software that very performantly solves a
+                        problem
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+
+            <!-- College Information -->
+            <div class="college">
+                <h3>College</h3>
+                <p>
+                    <strong>Massachusetts Institute of Technology</strong> |
+                    Sep. 2021 - May 2025
+                </p>
+                <p>
+                    Bachelor of Science in Mathematics and Computer Science and
+                    Engineering (double major)
+                </p>
+                <p>GPA: 5.0</p>
+            </div>
+
+            <!-- High School Information -->
+            <div class="high-school">
+                <h3>High School</h3>
+                <p>
+                    <strong
+                        >Mississippi School for Mathematics and Science</strong
+                    >
+                    | Graduated: May. 2021
+                </p>
+                <p>GPA: 4.0, ACT: 36</p>
+            </div>
+
+            <!-- College Classes -->
+            <div class="college-classes">
+                <h3>Full College Coursework</h3>
+                <div class="semester">
+                    <h4>Fall 2024</h4>
+                    <ul>
+                        <li>6.7910 Statistical Learning Theory (Graduate)</li>
+                        <li>6.7960 Deep Learning (Graduate)</li>
+                        <li>18.424 Seminar in Information Theory</li>
+                    </ul>
+                </div>
+                <div class="semester">
+                    <h4>Spring 2024</h4>
+                    <ul>
+                        <li>6.3722 Statistical Data Analysis (Graduate)</li>
+                        <li>18.655 Mathematical Statistics (Graduate)</li>
+                        <li>18.656 Non-Asymptotic Statistics (Graduate)</li>
+                        <li>18.434 Seminar in Theoretical Computer Science</li>
+                        <li>21L.490 Classic Russian Literature</li>
+                    </ul>
+                </div>
+                <div class="semester">
+                    <h4>Fall 2023</h4>
+                    <ul>
+                        <li>6.7900 Machine Learning (Graduate)</li>
+                        <li>6.3900 Introduction to Machine Learning</li>
+                        <li>6.1060 Software Performance Engineering</li>
+                        <li>14.01 Microeconomics</li>
+                    </ul>
+                </div>
+                <div class="semester">
+                    <h4>Spring 2023</h4>
+                    <ul>
+                        <li>18.600 Probability & Random Variables</li>
+                        <li>18.650 Fundamentals of Statistics</li>
+                        <li>6.1020 Software Construction</li>
+                        <li>14.70 Medieval Economics</li>
+                    </ul>
+                </div>
+                <div class="semester">
+                    <h4>Fall 2022</h4>
+                    <ul>
+                        <li>6.1220 Design & Analysis of Algorithms</li>
+                        <li>6.1910 Computation Structures</li>
+                        <li>6.1010 Fundamentals of Programming</li>
+                        <li>18.C25 Computational Thinking in Julia</li>
+                        <li>21H.154 Inventing the Samurai</li>
+                    </ul>
+                </div>
+                <div class="semester">
+                    <h4>Spring 2022</h4>
+                    <ul>
+                        <li>6.006 Introduction to Algorithms</li>
+                        <li>18.102 Functional Analysis</li>
+                        <li>18.950 Differential Geometry</li>
+                        <li>14.02 Macroeconomics</li>
+                    </ul>
+                </div>
+                <div class="semester">
+                    <h4>Fall 2021</h4>
+                    <ul>
+                        <li>18.701 Abstract Algebra I</li>
+                        <li>18.200A Discrete Applied Mathematics</li>
+                        <li>8.02 Physics II</li>
+                        <li>17.50 Comparative Politics</li>
+                    </ul>
+                </div>
+                <div class="semester">
+                    <h4>Advanced Standing Examinations</h4>
+                    <ul>
+                        <li>18.01 Calculus I</li>
+                        <li>18.02 Calculus II</li>
+                        <li>18.03 Differential Equations</li>
+                        <li>18.06 Linear Algebra</li>
+                        <li>6.0001 Introduction to Programming in Python</li>
+                        <li>7.012 Biology</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -156,10 +551,8 @@
                 Feel free to reach out to me for collaboration or opportunities!
             </p>
             <p>
-                Email:
-                <a href="mailto:jackson.flowers@example.com"
-                    >jackson.flowers@example.com</a
-                >
+                Email: {jackson.flowers} at {comcast} dot {net} (formatting is
+                to avoid webscrapers)
             </p>
             <p>
                 LinkedIn:
