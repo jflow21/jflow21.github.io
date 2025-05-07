@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Orbitron:wght@500&display=swap');
+
+body {
+  font-family: 'Cinzel', serif;
+  background-color: #1c1c1c;
+  color: #ddd;
+  margin: 0;
+  padding: 0;
+}
+
+
+header {
+    background-color: #550000;
+    color: #f5deb3;
+    padding: 1rem 2rem;
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: "Orbitron", sans-serif;
+    border-bottom: 2px solid #772222;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+
+.original-post,
+.reply {
+    background-color: #2a2a2a;
+    border-left: 4px solid #bb2e2e;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.1);
+}
+
+
+
+.forum-post {
+    background-color: #2a2a2a;
+    border-left: 4px solid #bb2e2e;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.1);
+    transition: box-shadow 0.2s;
+  }
+
+
+.original-post:hover,
+.reply:hover,
+.forum-post:hover {
+    box-shadow: 0 4px 10px rgba(255,0,0,10);
+  }
+
+
+
+.post-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #ffcccc;
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 0.5rem;
+}
+
+.reply-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: #ffaa66;
+    text-decoration: none;
+    font-family: "Orbitron", sans-serif;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+a.post-title {
+    color: #ffc9a9;
+    text-decoration: none;
+}
+
+a.post-title:hover {
+    text-decoration: underline;
+}
+
+.reply-count {
+    float: right;
+    background-color: #ecf0f1;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #555;
+  }
+
+.banner-ad {
+    background: repeating-linear-gradient(
+        45deg,
+        #b44323,
+        #b44323 10px,
+        #8a2916 10px,
+        #8a2916 20px
+    );
+    color: #fffbe6;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.7em;
+    font-size: 1.1em;
+    border-bottom: 2px solid #4e1f12;
+    animation: flicker 2.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    5% { opacity: 0.85; }
+    10% { opacity: 0.95; }
+    20% { opacity: 0.8; }
+    40% { opacity: 1; }
+    60% { opacity: 0.9; }
+    80% { opacity: 1; }
+    100% { opacity: 0.85; }
+}
+
+
+footer.game-link {
+    background-color: #331a12;
+    color: #f9e5c2;
+    padding: 1em;
+    text-align: center;
+    border-top: 2px solid #b44323;
+    font-size: 0.95em;
+    animation: shake 0.5s ease-in-out infinite alternate;
+}
+@keyframes shake {
+    0% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(-5px);
+    }
+}
+
+footer.game-link a {
+    color: #ffb347;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+footer.game-link a:hover {
+    color: #ffe3a3;
+    text-decoration: underline;
+}
+
+
+header h1 {
+    position: relative;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    animation: glitch 1.5s infinite;
+}
+
+
+.glitch {
+    font-size: 3em;
+    position: relative;
+    color: white;
+}
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    background: black;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* Updated dynamically by animation */
+}
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    animation: glitchTop 5s infinite linear alternate-reverse;
+}
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+    animation: glitchBottom 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitchTop {
+    0% {
+        clip: rect(0, 9999px, 0, 0);
+    }
+    4% {
+        clip: rect(5px, 9999px, 15px, 0);
+    }
+    8% {
+        clip: rect(10px, 9999px, 20px, 0);
+    }
+    12% {
+        clip: rect(15px, 9999px, 25px, 0);
+    }
+
+    16% {
+        clip: rect(20px, 9999px, 30px, 0);
+    }
+
+    20% {
+        clip: rect(25px, 9999px, 35px, 0);
+    }
+
+    24% {
+        clip: rect(0, 9999px, 0, 0);
+    }
+    100% {
+        clip: rect(0, 9999px, 0, 0);
+    }
+}
+
+@keyframes glitchBottom {
+    0% {
+        clip: rect(0, 9999px, 0, 0);
+    }
+    4% {
+        clip: rect(20px, 9999px, 30px, 0);
+    }
+    8% {
+        clip: rect(25px, 9999px, 35px, 0);
+    }
+    12% {
+        clip: rect(30px, 9999px, 40px, 0);
+    }
+
+    16% {
+        clip: rect(35px, 9999px, 45px, 0);
+    }
+
+    20% {
+        clip: rect(40px, 9999px, 50px, 0);
+    }
+
+    24% {
+        clip: rect(0, 9999px, 0, 0);
+    }
+    100% {
+        clip: rect(0, 9999px, 0, 0);
+    }
+}
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #1a0000;
+    color: #cc0000;
+    display: flex;
+    min-height: 100vh;
+}
+
+.ad-column {
+    width: 200px;
+    padding: 15px;
+    background-color: #550000;
+    border: 1px solid #cc0000;
+    box-shadow: 0 0 10px rgba(204, 0, 0, 0.5);
+}
+
+.left-ad {
+    border-right: 3px dashed #cc0000;
+}
+
+.right-ad {
+    border-left: 3px dashed #cc0000;
+}
+
+.main-content {
+    flex-grow: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.ad-unit {
+    background-color: #200000;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #990000;
+    position: relative;
+}
+
+.ad-unit img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.ad-unit h3 {
+    color: #ff3333;
+    margin-top: 0;
+    border-bottom: 1px solid #660000;
+    padding-bottom: 5px;
+}
+
+.ad-button {
+    background-color: #cc0000;
+    color: #000;
+    border: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.ad-button:hover {
+    background-color: #ff0000;
+}
+
+.ad-timer {
+    font-family: 'Arial', sans-serif;
+    color: #ff0000;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.blinking {
+    animation: blink 1.5s linear infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Your existing styles for header, posts, etc. */
