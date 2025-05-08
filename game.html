@@ -2,45 +2,285 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>RedFaith Forum - Thread</title>
-        <link rel="stylesheet" href="styles.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mars Dust Collector</title>
+        <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+                background-color: #9c2e35;
+                font-family: Arial, sans-serif;
+                background-image: url("https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+                background-size: cover;
+                background-position: center;
+                cursor: crosshair;
+            }
+
+            #game-container {
+                position: relative;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            .dust {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background-color: #971111;
+                border-radius: 50%;
+                pointer-events: auto;
+                box-shadow: 0 0 5px #a43232;
+                transition: transform 0.2s, opacity 0.2s;
+            }
+
+            #score-display {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                color: white;
+                font-size: 24px;
+                text-shadow: 1px 1px 2px black;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 10px;
+                border-radius: 5px;
+            }
+            #lives-display {
+                position: absolute;
+                top: 60px;
+                left: 20px;
+                color: white;
+                font-size: 24px;
+                text-shadow: 1px 1px 2px black;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            #ground {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 20px;
+                background-color: #5c3a21;
+                box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            #start-screen {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                z-index: 100;
+            }
+
+            #start-button {
+                margin-top: 20px;
+                padding: 10px 20px;
+                font-size: 20px;
+                background-color: #9c2e35;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            #start-button:hover {
+                background-color: #c0392b;
+            }
+
+            #game-over {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                z-index: 100;
+            }
+            #restart-button {
+                margin-top: 20px;
+                padding: 10px 20px;
+                font-size: 20px;
+                background-color: #9c2e35;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            #restart-button:hover {
+                background-color: #c0392b;
+            }
+        </style>
     </head>
     <body>
-        <header>
-            <div class="glitch" data-text="RedFaith Forum">RedFaith Forum</div>
-            <p>Voice of the Colony • Approved for Civil Reflection</p>
-        </header>
-
-        <section class="banner-ad">
-            <p>
-                <strong
-                    >☼ Remember: Thirst is the Mind’s Trial. Obey the Water
-                    Council. ☼</strong
-                >
-            </p>
-        </section>
-
-        <main>
-            <a class="back-link" href="index.html"
-                >&larr; Return to Approved Threads</a
-            >
-
-            <div class="original-post">
-                <div class="post-title">TODO</div>
-                <div class="post-meta">
-                    Posted by <strong>DustSeeker77</strong> • Apr 8, 2325 •
-                    Sanctified Tier 2
-                </div>
-                <div class="reply-content">TODO</div>
+        <div id="game-container">
+            <div id="score-display">Score: 0</div>
+            <div id="lives-display">Lives: 3</div>
+            <div id="ground"></div>
+            <div id="start-screen">
+                <h1>Mars Dust Collector</h1>
+                <p>
+                    Click on the falling dust particles before they hit the
+                    ground!
+                </p>
+                <p>The game gets faster as you score more points.</p>
+                <button id="start-button">Start Game</button>
             </div>
-        </main>
+            <div id="game-over">
+                <h1>GAME OVER</h1>
+                <button id="restart-button">Play again</button>
+            </div>
+        </div>
 
-        <footer class="game-link">
-            <p>
-                ☍ Try our featured simulation:
-                <a href="game.html"><strong>Harvest the Dust</strong></a>
-                — Earn your daily water credits!
-            </p>
-        </footer>
+        <script>
+            const gameContainer = document.getElementById("game-container");
+            const scoreDisplay = document.getElementById("score-display");
+            const livesDisplay = document.getElementById("lives-display");
+            const startScreen = document.getElementById("start-screen");
+            const startButton = document.getElementById("start-button");
+            const restartButton = document.getElementById("restart-button");
+            const gameOverDisplay = document.getElementById("game-over");
+
+            let score = 0;
+            let lives = 3;
+            let gameSpeed = 1;
+            let gameInterval;
+            let spawnInterval;
+            let isGameRunning = false;
+            let gameOver = false;
+
+            // Game dimensions
+            const gameWidth = window.innerWidth;
+            const gameHeight = window.innerHeight;
+            const groundHeight = 20;
+
+            // Dust particles array
+            let dustParticles = [];
+
+            // Start game
+            startButton.addEventListener("click", startGame);
+            restartButton.addEventListener("click", startGame);
+            spawnInterval = setInterval(spawnDust, 1000);
+
+            function startGame() {
+                // Reset game state
+                score = 0;
+                lives = 3;
+                gameSpeed = 1;
+                dustParticles.forEach((dust) => dust.element.remove());
+                dustParticles = [];
+
+                // Update UI
+                scoreDisplay.textContent = `Score: ${score}`;
+                livesDisplay.textContent = `Lives: ${lives}`;
+                startScreen.style.display = "none";
+                gameOverDisplay.style.display = "none";
+                isGameRunning = true;
+                gameOver = false;
+
+                // Start game loops
+                gameInterval = requestAnimationFrame(gameLoop);
+            }
+
+            function spawnDust() {
+                if (!isGameRunning) return;
+
+                // Create dust element
+                const dust = document.createElement("div");
+                dust.className = "dust";
+
+                // Random position at top of screen
+                const xPos = Math.random() * (gameWidth - 30);
+                dust.style.left = `${xPos}px`;
+                dust.style.top = "0px";
+
+                // Add to game container
+                gameContainer.appendChild(dust);
+
+                // Store dust data
+                const dustObj = {
+                    element: dust,
+                    x: xPos,
+                    y: 0,
+                    speed: 1 + Math.random() * gameSpeed,
+                    clicked: false,
+                };
+                dustParticles.push(dustObj);
+
+                // Add click event
+                dust.addEventListener("click", () => clickDust(dustObj));
+            }
+
+            function clickDust(dustObj) {
+                if (!isGameRunning || dustObj.clicked) return;
+
+                // Mark as clicked
+                dustObj.clicked = true;
+
+                // Update score
+                score++;
+                scoreDisplay.textContent = `Score: ${score}`;
+
+                // Increase game speed every 5 points
+                if (score % 5 === 0) {
+                    gameSpeed += 0.2;
+                }
+
+                // Remove the element with a small animation
+                dustObj.element.style.transform = "scale(1.5)";
+                dustObj.element.style.opacity = "0";
+
+                // Remove after animation completes
+                setTimeout(() => {
+                    dustObj.element.remove();
+                    // Remove from array
+                    const index = dustParticles.indexOf(dustObj);
+                    if (index > -1) {
+                        dustParticles.splice(index, 1);
+                    }
+                }, 200);
+            }
+
+            function gameLoop() {
+                if (!isGameRunning) return;
+
+                // Move all dust particles
+                for (let i = dustParticles.length - 1; i >= 0; i--) {
+                    const dust = dustParticles[i];
+                    dust.y += dust.speed;
+                    dust.element.style.top = `${dust.y}px`;
+
+                    // Check if dust hit the ground
+                    if (dust.y >= gameHeight - groundHeight && !dust.clicked) {
+                        dust.element.remove();
+                        dustParticles.splice(i, 1);
+                        lives--;
+                        livesDisplay.textContent = `Lives: ${lives}`;
+
+                        if (lives <= 0) {
+                            gameOver = true;
+                            gameOverDisplay.style.display = "flex";
+                            isGameRunning = false;
+                            break;
+                        }
+                    }
+                }
+
+                requestAnimationFrame(gameLoop);
+            }
+        </script>
     </body>
 </html>
